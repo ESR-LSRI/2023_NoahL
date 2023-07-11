@@ -49,7 +49,7 @@ N/a
 [less snowmelt]: # (less than what? be specific here about what you are comparing to)
 [Mt. Baker]: # (sounds like you are ready to start asking questions of the data. I will coach you all into the data set and where to start.) 
 
-## 7/11/2023 Mt. Baker Climate
+## 7/11/2023 Schrieber's Meadow Sunniness
 
 ### Summary
 My main objective for today was to continue educating myself on the climate of the Pacific Northwest and specifically, Mt. Baker. 

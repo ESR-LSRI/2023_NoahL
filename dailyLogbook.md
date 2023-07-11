@@ -34,6 +34,8 @@ Significant points I discovered through my research:
 * Glacial runoff from the snow on Mt. Baker is extremely important for the preservation of wildlife, crops, and to temper [wildfires].
 * By 2070, there may be no snowpack on Mt. Baker due to climate change.
 * Lapse rate can be utilized by meteorologists to predict the weather; for instance, precipitation and snowfall.
+* Evergreen trees are used as inexpensive cosmic radiation shields in order to obtain accurate temperature measurements.
+* The IButton temperature sensors can additionally be used to calculate snowfall. 
 
 ### Next Steps
 Begin to analyze data on the lapse rate and sunlight on [Mt. Baker.]

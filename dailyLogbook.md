@@ -44,4 +44,4 @@ N/a
 
 [wildfires]: # (also the source of our electricity from the skagit river.)
 [less snowmelt]: # (less than what? be specific here about what you are comparing to)
-[//]: # [Mt. Baker]: # (sounds like you are ready to start asking questions of the data. I will coach you all into the data set and where to start. Hi) 
+[Mt. Baker]: # (sounds like you are ready to start asking questions of the data. I will coach you all into the data set and where to start. Hi) 

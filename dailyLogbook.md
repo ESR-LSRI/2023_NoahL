@@ -58,8 +58,8 @@ My main objective for today was to continue educating myself on the climate of t
 I began to focus my attention on a specific question: How sunny is it at Schrieber's Meadow (the lowest instrument site)? Has this changed over the instrument record? I used the scientific papers in the README file, specifically the one on using evergreen trees as radiation shields to begin to understand how I should parse my data.
 
 ### Outcome
-I updated my notes on Mt. Baker from yesterday, using points noted in the teaching session with Dr. Town. (See [notes]#(7/10/2023-mt.-baker-climate))
-I began to write a program that will parse data from all 5 years and take the difference between the sensors in the open and the sensors under the trees to find the "sunniness" without radiation interference. 
+I updated my notes on Mt. Baker from yesterday, using points noted in the teaching session with Dr. Town. (See my notes from yesterday)
+I began to write a program that will parse data from all 5 years and take the difference between the sensors in the open and the sensors under the trees to find the "sunniness" without radiation interference. Then graph that as a function of average daily radiation and see how well linear regression will fit (r^2). The better the fit, the better trees will block solar radiation. Making it less "sunny". (Question - If I want to answer the question (How sunny is it at Schrieber's Meadow?), what does it mean by "sunny", and how should I calculate it?) 
 
 ### Next Steps
 Finish my program, and make conclusions about the results.

@@ -35,7 +35,8 @@ Significant points I discovered through my research:
 * By 2070, there may be no snowpack on Mt. Baker due to climate change.
 * Lapse rate can be utilized by meteorologists to predict the weather; for instance, precipitation and snowfall.
 * Evergreen trees are used as inexpensive cosmic radiation shields in order to obtain accurate temperature measurements.
-* The IButton temperature sensors can additionally be used to calculate snowfall. 
+* The IButton temperature sensors can additionally be used to calculate snowfall.
+* Lapse rate can be positive during nighttime when the ground is cooler than the atmosphere. (The ground radiates energy toward space)
 
 ### Next Steps
 Begin to analyze data on the lapse rate, sunlight, and snowfall on [Mt. Baker.]

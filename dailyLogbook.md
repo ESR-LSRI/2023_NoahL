@@ -37,7 +37,7 @@ Significant points I discovered through my research:
 * Evergreen trees are used as inexpensive cosmic radiation shields in order to obtain accurate temperature measurements.
 * The IButton temperature sensors can additionally be used to calculate snowfall.
 * Lapse rate can be positive during nighttime when the ground is cooler than the atmosphere. (The ground radiates energy toward space)
-* Lapse rate is higher when its dry around summer.
+* Lapse rate is higher when it's dry around summer.
 * Buried IButtons give 0C when snow is melting since that is the melting point. (The ground and air is heating it)
 
 ### Next Steps
@@ -45,8 +45,25 @@ Begin to analyze data on the lapse rate, sunlight, and snowfall on [Mt. Baker.]
 
 ### Questions
 N/a
-
-
 [wildfires]: # (also the source of our electricity from the skagit river.)
 [less snowmelt]: # (less than what? be specific here about what you are comparing to)
 [Mt. Baker]: # (sounds like you are ready to start asking questions of the data. I will coach you all into the data set and where to start.) 
+
+## 7/11/2023 Mt. Baker Climate
+
+### Summary
+My main objective for today was to continue educating myself on the climate of the Pacific Northwest and specifically, Mt. Baker. 
+
+### Approach
+I began to focus my attention on a specific question: How sunny is it at Schrieber's Meadow (the lowest instrument site)? Has this changed over the instrument record? I used the scientific papers in the README file, specifically the one on using evergreen trees as radiation shields to begin to understand how I should parse my data.
+
+### Outcome
+I updated my notes on Mt. Baker from yesterday, using points noted in the teaching session with Dr. Town. (See [notes]#(7/10/2023-mt.-baker-climate))
+I began to write a program that will parse data from all 5 years and take the difference between the sensors in the open and the sensors under the trees to find the "sunniness" without radiation interference. 
+
+### Next Steps
+Finish my program, and make conclusions about the results.
+
+### Questions
+N/a
+

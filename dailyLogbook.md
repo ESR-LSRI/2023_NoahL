@@ -33,7 +33,7 @@ Significant points I discovered through my research:
 * The pacific northwest is subject to mild to cold climates due to the cold ocean wind that settles to the west of the Cascades and the Rockies.
 * Glacial runoff from the snow on Mt. Baker is extremely important for the preservation of wildlife, crops, and to temper [wildfires].
 * By 2070, there may be no snowpack on Mt. Baker due to climate change.
-* Small lapse rates indicate [less snowmelt], which is why it's important to measure it.
+* Lapse rate can be utilized by meteorologists to predict the weather. 
 
 ### Next Steps
 Begin to analyze data on the lapse rate and sunlight on [Mt. Baker.]

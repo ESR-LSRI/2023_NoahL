@@ -59,11 +59,13 @@ I began to focus my attention on a specific question: How sunny is it at Schrieb
 
 ### Outcome
 I updated my notes on Mt. Baker from yesterday, using points noted in the teaching session with Dr. Town. (See my notes from yesterday)
-I began to write a program that will parse data from all 5 years and take the difference between the sensors in the open and the sensors under the trees to find the "sunniness" without radiation interference. Then graph that as a function of average daily radiation and see how well linear regression will fit (r^2). The better the fit, the better trees will block solar radiation. Making it less "sunny". (Question - If I want to answer the question (How sunny is it at Schrieber's Meadow?), what does it mean by "sunny", and how should I calculate it? Or should I not be taking these questions at face value and just use them for inspiration?) 
+I began to write a program that will parse data from all 5 years and take the difference between the sensors in the open and the sensors under the trees to find the "sunniness" without radiation interference. Then graph that as a function of average daily radiation and see how well linear regression will fit (r^2). The better the fit, the better trees will block solar radiation. Making it less "sunny". (Question - If I want to answer the question (How sunny is it at Schrieber's Meadow?), what does it mean by "sunny", and how should I calculate it? Or should I not be taking these questions at face value and just use them for [inspiration]?) 
 
 ### Next Steps
 Finish my program, and make conclusions about the results.
 
 ### Questions
 N/a
+
+[inspiration]: # (Can you link to your code here to make it easier for me to find? Good entry today.)
 

@@ -67,3 +67,20 @@ Finish my program, and make conclusions about the results.
 ### Questions
 N/a
 
+## 7/11/2023 iButtons
+
+### Summary
+My main objective for today was to organize the iButton's locations/conditions/surroundings into easily readable and accessible charts and maps.
+
+### Approach
+We used Google Sheets to make a chart of all the button conditions and site locations. We then used Google Maps to map the locations for each year.
+
+### Outcome
+We have a well-organized chart that will be super useful for making sure our data parsing is correct. 
+
+### Next Steps
+Finish maps for iButtons. Log locations for each. Double-check our work. Translate the Logbooks into easy-to-read charts.
+
+### Questions
+N/a
+

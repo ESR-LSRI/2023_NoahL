@@ -58,8 +58,13 @@ My main objective for today was to continue educating myself on the climate of t
 I began to focus my attention on a specific question: How sunny is it at Schrieber's Meadow (the lowest instrument site)? Has this changed over the instrument record? I used the scientific papers in the README file, specifically the one on using evergreen trees as radiation shields to begin to understand how I should parse my data.
 
 ### Outcome
+<<<<<<< HEAD
 I updated my notes on Mt. Baker from yesterday, using points noted in the teaching session with Dr. Town. (See my notes from yesterday)
 I began to write a program that will parse data from all 5 years and take the difference between the sensors in the open and the sensors under the trees to find the "sunniness" without radiation interference. Then graph that as a function of average daily radiation and see how well linear regression will fit (r^2). The better the fit, the better trees will block solar radiation. Making it less "sunny". (Question - If I want to answer the question (How sunny is it at Schrieber's Meadow?), what does it mean by "sunny", and how should I calculate it? Or should I not be taking these questions at face value and just use them for [inspiration]?) 
+=======
+I updated my notes on Mt. Baker from yesterday, using points noted in the teaching session with Dr. Town.
+I began to write a program that will parse data from all 5 years and take the difference between the sensors in the open and the sensors under the trees to find the "sunniness" without radiation interference. Then graph that as a function of average daily radiation and see how well linear regression will fit (r^2). The better the fit, the better trees will block solar radiation. Making it less "sunny". (Question - If I want to answer the question (How sunny is it at Schrieber's Meadow?), what does it mean by "sunny", and how should I calculate it? Or should I not be taking these questions at face value and just use them for inspiration?) 
+>>>>>>> 988beffee00f8dce3d32cb3986b657b203eeda02
 
 ### Next Steps
 Finish my program, and make conclusions about the results.
@@ -67,5 +72,24 @@ Finish my program, and make conclusions about the results.
 ### Questions
 N/a
 
+<<<<<<< HEAD
 [inspiration]: # (Can you link to your code here to make it easier for me to find? Good entry today.)
+=======
+## 7/11/2023 iButtons
+
+### Summary
+My main objective for today was to organize the iButton's locations/conditions/surroundings into easily readable and accessible charts and maps.
+
+### Approach
+We used Google Sheets to make a chart of all the button conditions and site locations. We then used Google Maps to map the locations for each year.
+
+### Outcome
+We have a well-organized chart that will be super useful for making sure our data parsing is correct. 
+
+### Next Steps
+Finish maps for iButtons. Log locations for each. Double-check our work. Translate the Logbooks into easy-to-read charts.
+
+### Questions
+N/a
+>>>>>>> 988beffee00f8dce3d32cb3986b657b203eeda02
 

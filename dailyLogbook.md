@@ -75,7 +75,7 @@ N/a
 <<<<<<< HEAD
 [inspiration]: # (Can you link to your code here to make it easier for me to find? Good entry today.)
 =======
-## 7/11/2023 iButtons
+## 7/12/2023 iButtons
 
 ### Summary
 My main objective for today was to organize the iButton's locations/conditions/surroundings into easily readable and accessible charts and maps.
@@ -94,4 +94,22 @@ N/a
 
 [charts]: # (this is a good update. Can you link your code in the logbook so that I can see the link next time? Also input the map image, at least intermediate products, here.) 
 >>>>>>> 988beffee00f8dce3d32cb3986b657b203eeda02
+
+# 7/13/2023
+### Summary
+Continued to update our charts on iButton data. [iButton Locations, Descriptions, and More](https://docs.google.com/spreadsheets/d/1rYSfCRtbOYoHYn_85mbR3-nh_1uO19BrHjO-JNV4u0A/edit#gid=0)
+
+### Approach
+We worked as a group to complete our charts, maps, and notes.
+
+
+### Outcome
+A practically complete chart with all the data on iButtons.
+
+### Next Steps
+Think about how I am going to handle all these csv's in a single program.
+
+### Questions
+N/a
+
 

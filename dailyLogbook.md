@@ -104,7 +104,7 @@ We worked as a group to complete our charts, maps, and notes.
 
 
 ### Outcome
-A practically complete chart with all the data on iButtons.
+A practically complete chart with all the data on iButtons. Added a dir called ESR-LSRI with my program and data. [programs](https://github.com/ESR-LSRI/2023_NoahL/tree/main/ESR_LSRI)
 
 ### Next Steps
 Think about how I am going to handle all these csv's in a single program.

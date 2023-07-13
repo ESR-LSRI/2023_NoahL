@@ -87,9 +87,11 @@ We used Google Sheets to make a chart of all the button conditions and site loca
 We have a well-organized chart that will be super useful for making sure our data parsing is correct. 
 
 ### Next Steps
-Finish maps for iButtons. Log locations for each. Double-check our work. Translate the Logbooks into easy-to-read charts.
+Finish maps for iButtons. Log locations for each. Double-check our work. Translate the Logbooks into easy-to-read [charts].
 
 ### Questions
 N/a
+
+[charts]: # (this is a good update. Can you link your code in the logbook so that I can see the link next time? Also input the map image, at least intermediate products, here.) 
 >>>>>>> 988beffee00f8dce3d32cb3986b657b203eeda02
 

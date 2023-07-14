@@ -34,6 +34,7 @@ def getiButtonNum(site, desc, year = "All"):
     
     return iButtons.at[getIndexFromDesc(site, desc), year + " #"]
 
+#Allows me to get the iButton number based on site, description, and year. will be useful for getting the correct iButton number when getting data from files.
 print(getiButtonNum(1, "Exposed", "2021"))
 
 

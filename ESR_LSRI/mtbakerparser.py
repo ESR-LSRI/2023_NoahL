@@ -6,10 +6,6 @@ import pandas as pd
 from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
 
-site: int = 1
-year: str = "2018 #"
-description: str = "Exposed"
-
 descLoc = {
     
     "Exposed": 0,
@@ -32,10 +28,36 @@ def getiButtonNum(site, desc, year = "All"):
     if year == "All":
         return iButtons.iloc[getIndexFromDesc(site, desc)][2:]
     
-    return iButtons.at[getIndexFromDesc(site, desc), year + " #"]
+    
+    num = iButtons.at[getIndexFromDesc(site, desc), year + " #"] if not np.isnan(iButtons.at[getIndexFromDesc(site, desc), year + " #"]) else -1
+    if (num == -1):
+        raise Exception("No iButton for specificed description.")
+    
+    return num
+    
+def getiButtonData(site, desc, year: str):
+    
+    if desc not in ["Buried", "Shaded", "Exposed"] or year not in ["2018", "2019", "2020", "2021", "2022"]:
+        raise Exception()
+    
+    return pd.read_csv("data//" + year + "//" + "MBCP" + year + "-" + str(int(year) + 1) + "_iButton" + getiButtonNum(site, desc, str(year)) + ".csv", skiprows=14)
+        
 
-#Allows me to get the iButton number based on site, description, and year. will be useful for getting the correct iButton number when getting data from files.
-print(getiButtonNum(1, "Exposed", "2021"))
+def getAltitude(iButtonNum, year: str):
+    
+    if year not in ["2018", "2019", "2020", "2021", "2022"]:
+        raise Exception()
+    
+    df = pd.read_csv("data//altitudes//altitudes" + year + ".csv")
+    
+    if not np.isnan(df.at[iButtonNum - 1, "Altitude (meters)"]):
+        return df.at[iButtonNum - 1, "Altitude (meters)"]
+    
+    raise Exception("No altitude data.")
+    
+
+
+
 
 
     

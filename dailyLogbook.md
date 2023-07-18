@@ -127,7 +127,7 @@ Talked to my group over email then did some programming work.
 
 
 ### Outcome
-I now have a program that can graph data in a range: [program zip](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI-programs%20(2).zip) [raw program](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI/mtbakerparser.py)
+I now have a program that can graph data in a range: [program zip](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI-programs%20(2).zip) \ [raw program](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI/mtbakerparser.py) \
 I started on a program that can concatenate data.
 
 ### Next Steps

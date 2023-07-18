@@ -128,10 +128,12 @@ Talked to my group over email then did some programming work.
 
 ### Outcome
 I now have a program that can graph data in a range: [program zip](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI-programs%20(2).zip) \ [raw program](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI/mtbakerparser.py) \
-I started on a program that can concatenate data.
+I started on a program that can concatenate [data].
 
 ### Next Steps
 Continue to work on concatenating data. Think more about my question on snow depth, how I'm going to present it, what data I'm going to use, etc.
 
 ### Questions
 N/a
+
+[data]: # (Very strong work, Noah. I'm excited to see your concatenation work. Let's also think about where to spend your time so that you can get a good graph or two of your work. How will you identify when the sensors are buried?)

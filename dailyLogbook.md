@@ -117,3 +117,21 @@ N/a
 
 ## I hope you are well, Noah. When you get a chance, please up me on Friday and whatever else you've been able to do - DT
 
+# 7/13/2023 More iButtons
+
+### Summary
+Communicated with my group, worked on some programs.
+
+### Approach
+Talked to my group over email then did some programming work.
+
+
+### Outcome
+I now have a program that can graph data in a range: [program zip](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI-programs%20(2).zip) [raw program](https://github.com/ESR-LSRI/2023_NoahL/blob/main/ESR_LSRI/mtbakerparser.py)
+I started on a program that can concatenate data.
+
+### Next Steps
+Continue to work on concatenating data. Think more about my question on snow depth, how I'm going to present it, what data I'm going to use, etc.
+
+### Questions
+N/a

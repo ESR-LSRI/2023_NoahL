@@ -117,7 +117,7 @@ N/a
 
 ## I hope you are well, Noah. When you get a chance, please up me on Friday and whatever else you've been able to do - DT
 
-# 7/13/2023 More iButtons
+# 7/17/2023 Programming
 
 ### Summary
 Communicated with my group, worked on some programs.

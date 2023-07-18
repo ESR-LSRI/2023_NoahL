@@ -136,4 +136,4 @@ Continue to work on concatenating data. Think more about my question on snow dep
 ### Questions
 N/a
 
-[data]: # (Very strong work, Noah. I'm excited to see your concatenation work. Let's also think about where to spend your time so that you can get a good graph or two of your work. How will you identify when the sensors are buried?)
+[data]: # (Very strong work, Noah. I'm excited to see your concatenation work. Let's also think about where to spend your time so that you can get a good graph or two of your work. How will you identify when the sensors are buried? Please use relative path names for figures and files here. Thanks!)

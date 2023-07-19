@@ -147,6 +147,8 @@ I spent a lot of time debugging issues with pandas, unfortunately.
 
 Did some research on how to calculate snow depth.
 
+I'm a little behind since I was sick and spent a lot of time working on calculating sunniness. I'm going to do a lot of catchup work tonight and hopefully finish my graph and my poster. (git will probably be updated a little late since i have practice)
+
 ### Outcome
 I'm almost done, my program will be finished by tomorrow.
 

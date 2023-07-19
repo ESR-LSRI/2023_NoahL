@@ -120,10 +120,10 @@ N/a
 # 7/17/2023 Programming
 
 ### Summary
-Communicated with my group, worked on some programs.
+I communicated with my group, and worked on some programs.
 
 ### Approach
-Talked to my group over email then did some programming work.
+Talked to my group over email and then did some programming work.
 
 
 ### Outcome
@@ -138,12 +138,14 @@ N/a
 
 [data]: # (Very strong work, Noah. I'm excited to see your concatenation work. Let's also think about where to spend your time so that you can get a good graph or two of your work. How will you identify when the sensors are buried? Please use relative path names for figures and files here. Thanks!)
 
-# 7/19/2023 Snow Depth
+# 7/19/2023 Snow Depth / A Bit Of Research
 
 ### Summary
 I worked on a program that will graph the temperature of exposed sensors side-by-side so I can see when each got buried and will also calculate how much it snowed over a period of time, and how high the snow is.
 
 I spent a lot of time debugging issues with pandas, unfortunately.
+
+Did some research on how to calculate snow depth.
 
 ### Outcome
 I'm almost done, my program will be finished by tomorrow.

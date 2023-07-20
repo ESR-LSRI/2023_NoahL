@@ -149,7 +149,7 @@ Did some research on how to calculate snow depth.
 
 I'm a little behind since I was sick and spent a lot of time working on calculating sunniness. I'm going to do a lot of catchup work tonight and hopefully finish my graph and my poster. (git will probably be updated a little late since i have practice)
 
-UPDATE: I realized some files were out of date, some had weird formatting, and some more issues. It's all fixed and I have graphs in my esr-lsri folder. Also a function that can get the days when it was buried by just checking if temp is close to 0. A graph of that is soon or some other way to present that data? 
+**UPDATE:** I realized some files were out of date, some had weird formatting, and some more issues. It's all fixed and I have graphs in my esr-lsri folder. Also a function that can get the days when it was buried by just checking if temp is close to 0. A graph of that is soon or some other way to present that data? 
 Poster drafted.
 
 ### Outcome

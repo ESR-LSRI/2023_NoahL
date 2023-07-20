@@ -5,6 +5,7 @@ import os
 
 from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
+from statistics import stdev
 
 descLoc = {
     
@@ -118,6 +119,68 @@ def graphExposedByHeight(path: str):
                 x += 1
                 y = 0
             else: y += 1
+
+def listOf(num, size):
+    return [num for x in range(size)]
+
+def graph(dfs, nums):
+    
+   
+    for ind, df in enumerate(dfs):
+        
+        buried = whenBuried(df["Value"].to_list(), [round(toDecimalDate(x), 4) for x in list(df.index.values)])
+        pt.scatter(buried, listOf(nums[ind], len(buried)), label = nums[ind])
+    
+    
+    
+    
+
+def getSnowDepth(path: str):
+    
+    dfs = []
+    
+    for folder in os.listdir(path):
+        
+        for file in os.listdir(path + folder):
+            
+            dfs.append(pd.read_csv(path + folder + "/" + file, skiprows = 14, encoding = 'latin1'))
+    
+    graph(dfs, [50, 100, 150, 200, 230])
+    #print(whenBuried(dfs[0]["Value"].to_list(), [round(toDecimalDate(x), 4) for x in list(dfs[0].index.values)]))
+
+def check(list1: list) -> bool:
+    
+    for num in list1:
+        
+        if not (-0.5 < num < 0.5):
+            
+            return False
+    
+    return True
+
+def whenBuried(values: list, dates: list) -> list:
+    
+    prevDate = dates[0]
+    dayData = []
+    toReturn = []
+    
+    for ind, date in enumerate(dates):
+
+        if date != prevDate:
+            #check(): func to see if a sensor is buried based on list of day data
+            if (check(dayData)):
+                    toReturn.append(prevDate)
+            prevDate = date
+            dayData.clear()
+        
+        else:
+            dayData.append(values[ind])
+            
+    return toReturn
+            
+    
+    
+            
             
 
 path = "C:/Users/noahl/Desktop/ESR_LSRI-programs/dataorg/"
@@ -128,8 +191,14 @@ path = "C:/Users/noahl/Desktop/ESR_LSRI-programs/dataorg/"
 
 #times = [round(toDecimalDate(x), 2) for x in times]
 
-graphExposedByHeight(path)
+#graphExposedByHeight(path)
 
+getSnowDepth(path)
+
+
+pt.ylabel("Snow Height (cm)")
+pt.xlabel("Decimal Date")
+pt.legend()
 pt.show()
 
 

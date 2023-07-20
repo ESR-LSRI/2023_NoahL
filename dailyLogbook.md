@@ -161,3 +161,14 @@ Poster draft.
 ### Questions
 N/a
 
+# 7/20/2023 Snow Depth
+
+### Summary
+Made a graph of snow depths at different elevations w/ linear regression.
+
+### Next Steps
+Make poster.
+
+### Questions
+N/a
+

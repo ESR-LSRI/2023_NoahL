@@ -1,6 +1,7 @@
 import matplotlib.pyplot as pt
 import numpy as np
 import pandas as pd
+import os
 
 from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
@@ -54,12 +55,15 @@ def getAltitude(iButtonNum, year: str):
     raise Exception("No altitude data.")
 
 def toDecimalDate(date: str):
-    
-    x = date.split(" ")[0].split("/")
+    try:
+        x = date.split(" ")[0].split("/")
+    except:
+        raise Exception("failed" + str(date))
     
     return int(x[0])/12 + int(x[1])/365 + int(x[2])
-                              
-def getDataYears(site, desc, yrRange: str, ignoreMissingData: bool) -> list:
+
+                        
+def getDataYears(site, desc, yrRange: str, ignoreMissingData: bool = True, returnTimes: bool = True) -> list:
     
     years = yrRange.split("-")
     data = []
@@ -80,25 +84,53 @@ def getDataYears(site, desc, yrRange: str, ignoreMissingData: bool) -> list:
         
         num = int(num) + 1
         num = str(num)
+    if (returnTimes):
+        return data, times
+    return data
+
+def difference(list1: list, list2: list) -> list:
     
-    return data, times
+    return [abs(a - b) for a, b in zip(list1, list2)]
 
+#this function is hardcoded b/c doing it dynamically doesnt rlly matter
+def graphExposedByHeight(path: str):
+    
+    figure, axis = pt.subplots(2, 3)
+    
+    axis[1][2].set_visible(False)
+    
+    figure.supxlabel("Decimal Date")
+    figure.supylabel("Celcius")
+    
+    x = 0
+    y = 0
+    
+    for folder in os.listdir(path):
+        
+        for file in os.listdir(path + folder):
+            
+            df = pd.read_csv(path + folder + "/" + file, skiprows = 14, encoding = 'latin1')
+            axis[x][y].plot([toDecimalDate(x) for x in list(df.index.values)], df["Value"], label = folder)
+            axis[x][y].legend(loc = 1)
+            
+            
+            if y >= 2:
+                x += 1
+                y = 0
+            else: y += 1
+            
 
+path = "C:/Users/noahl/Desktop/ESR_LSRI-programs/dataorg/"
 #inputs: site, description (Buried, Exposed, Shaded), year range, false to throw an exception when
 #missing data, true to just ignore it
-data, times = getDataYears(1, "Buried", "2018-2021", False)
 
-times = [round(toDecimalDate(x), 2) for x in times]
+#data, times = getDataYears(1, "Buried","2018-2021", False)
 
-#you can also do pt.plot(times, data) and mess around with that
-pt.plot(times, data)
+#times = [round(toDecimalDate(x), 2) for x in times]
 
-pt.xlabel("Decimal Date")
-pt.ylabel("Celcius")
+graphExposedByHeight(path)
 
 pt.show()
-
-
 
 
     

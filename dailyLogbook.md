@@ -172,3 +172,14 @@ Make poster.
 ### Questions
 N/a
 
+# 7/24/2023 Poster
+
+### Summary
+Edited and finalized poster. Practiced presenting a bit.
+
+### Next Steps
+Practice presenting more.
+
+### Questions
+N/a
+

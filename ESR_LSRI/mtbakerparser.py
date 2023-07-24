@@ -3,8 +3,6 @@ import numpy as np
 import pandas as pd
 import os
 
-from sklearn.metrics import r2_score
-from sklearn.linear_model import LinearRegression
 from statistics import stdev
 
 descLoc = {
@@ -61,7 +59,7 @@ def toDecimalDate(date: str):
     except:
         raise Exception("failed" + str(date))
     
-    return int(x[0])/12 + int(x[1])/365 + int(x[2])
+    return int(x[0])/13 + int(x[1])/365 + int(x[2])
 
                         
 def getDataYears(site, desc, yrRange: str, ignoreMissingData: bool = True, returnTimes: bool = True) -> list:
@@ -123,16 +121,58 @@ def graphExposedByHeight(path: str):
 def listOf(num, size):
     return [num for x in range(size)]
 
+def inRange(num1, num2, check):
+    if check < num2 and check > num1:
+        return True
+    return False
+
+def mean(list1):
+    return sum(list1) / len(list1)
+
+def removeOutliers(data, m=5, depth = 5):
+    
+    data1 = data
+    
+    for x in range(depth):
+        data1 = data[abs(data - np.mean(data)) < m * np.std(data)]
+        
+    return data1
 def graph(dfs, nums):
     
+    prevFirst = 0.0
+    prevLast = 100
+    
+    allDates = []
+    allValues = []
    
-    for ind, df in enumerate(dfs):
+    for ind, df in enumerate(dfs[::-1]):
         
         buried = whenBuried(df["Value"].to_list(), [round(toDecimalDate(x), 4) for x in list(df.index.values)])
-        pt.scatter(buried, listOf(nums[ind], len(buried)), label = nums[ind])
+        temp = list(removeOutliers(np.array(buried), m = 22.5, depth = 3))
+        temp = buried[13:]
+        
+        #if (ind > 0):
+          # temp = [x for x in temp if not prevFirst < x < prevLast]
+        
+        
+        #prevFirst = temp[0]
+        #prevLast = temp[-1]
+        
+        pt.scatter(temp, listOf(nums[ind], len(temp)), label = str(nums[ind]) + " (cm)", marker = "o")
+        
+        
+        
+        
+        #allDates += temp
+        #allValues += listOf(nums[ind], len(temp))
     
     
+     
     
+
+
+def f(x, *p):
+    return np.poly1d(p)(x)
     
 
 def getSnowDepth(path: str):
@@ -145,15 +185,22 @@ def getSnowDepth(path: str):
             
             dfs.append(pd.read_csv(path + folder + "/" + file, skiprows = 14, encoding = 'latin1'))
     
-    graph(dfs, [50, 100, 150, 200, 230])
+    graph(dfs, [50, 100, 150, 200, 230][::-1])
     #print(whenBuried(dfs[0]["Value"].to_list(), [round(toDecimalDate(x), 4) for x in list(dfs[0].index.values)]))
 
 def check(list1: list) -> bool:
     
+    if stdev(list1) > 0.45:
+        return False
+    
+    if (mean(list1) > 2):
+        return False
+    
+    
     for num in list1:
         
-        if not (-0.5 < num < 0.5):
-            
+        if not (-0.5 <= num <= 0.5):
+        
             return False
     
     return True
@@ -175,7 +222,6 @@ def whenBuried(values: list, dates: list) -> list:
         
         else:
             dayData.append(values[ind])
-            
     return toReturn
             
     
@@ -192,7 +238,6 @@ path = "C:/Users/noahl/Desktop/ESR_LSRI-programs/dataorg/"
 #times = [round(toDecimalDate(x), 2) for x in times]
 
 #graphExposedByHeight(path)
-
 getSnowDepth(path)
 
 

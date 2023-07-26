@@ -183,7 +183,7 @@ Practice presenting more.
 ### Questions
 N/a
 
-# 7/25/2023 UW Reflection
+# 7/25/2023 UW Reflection + Independent Work
 
 * Who did you talk to?  \
 I talked to Ed, Liam, T.J. Fudge, Cody, and Michelle.
@@ -196,4 +196,7 @@ Look at weather patterns to see what caused outliers in my graph (storms, extrem
 
 * What ideas do you have for your next steps?  \
 Add data from SNOTEL sites to my program. Analyze data from 2023, if we have it. Try a polynomial regression model. 
+
+### Summary
+Gathered data from SNOTEL sites for comparison. I graphed it alongside the snow depth data from the iButton sensors. I graphed a few different SNOTEL locations to see which matched up the best. 999 and 910, Marten Ridge and Elbow Lake both aligned with iButton data pretty well. [graph] (https://github.com/ESR-LSRI/2023_NoahL/blob/main/figures/Figure_1.png)
 

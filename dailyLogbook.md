@@ -185,15 +185,15 @@ N/a
 
 # 7/25/2023 UW Reflection
 
-* Who did you talk to? \
+* Who did you talk to?  \
 I talked to Ed, Liam, T.J. Fudge, Cody, and Michelle.
 
-* What questions did they ask? \
+* What questions did they ask?  \
 Asked about what my future steps are, and if I'm going to do cross-analysis to illustrate the accuracy of my model.
 
-* What resources or ideas did they offer/suggest? \
+* What resources or ideas did they offer/suggest?  \
 Look at weather patterns to see what caused outliers in my graph (storms, extreme weather, etc). Cross-analyze with snow depth data from Mt. Baker sites. Add data from other years.
 
-* What ideas do you have for your next steps? \
+* What ideas do you have for your next steps?  \
 Add data from SNOTEL sites to my program. Analyze data from 2023, if we have it. Try a polynomial regression model. 
 

@@ -200,3 +200,6 @@ Add data from SNOTEL sites to my program. Analyze data from 2023, if we have it.
 ### Summary
 Gathered data from SNOTEL sites for comparison. I graphed it alongside the snow depth data from the iButton sensors. I graphed a few different SNOTEL locations to see which matched up the best. 999 and 910, Marten Ridge and Elbow Lake both aligned with iButton data pretty well. [graph] (https://github.com/ESR-LSRI/2023_NoahL/blob/main/figures/Figure_1.png)
 
+### Next Steps
+Regression. Calculate how well the plots fit each other. 
+

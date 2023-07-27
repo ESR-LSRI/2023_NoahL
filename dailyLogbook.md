@@ -208,4 +208,9 @@ Gathered data from SNOTEL sites for comparison. I graphed it alongside the snow 
 # 7/25/2023 Continuing Work
 
 ### Summary
-Graphed 2023 data along with SNOTEL data. I made an algorithm to remove outliers based on Z score. Doesn't work very well. ![nooutliers](
+Graphed 2023 data along with SNOTEL data. I made an algorithm to remove outliers based on Z score. Doesn't work very well. [nooutliers](./figures/outliersno.png)
+[outliers](./figures/outliersyes.png]
+
+### Next Steps
+Improve the algorithm to remove outliers. 
+

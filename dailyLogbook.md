@@ -210,6 +210,11 @@ Gathered data from SNOTEL sites for comparison. I graphed it alongside the snow 
 ### Summary
 Graphed 2023 data along with SNOTEL data. I made an algorithm to remove outliers based on Z score. Doesn't work very well. [nooutliers](./figures/outliersno.png)  [outliers](./figures/outliersyes.png)
 
+Also a silver turkey...
+
+I can't really think of anything that went so horribly wrong it's funny/interesting. 
+I guess just walked right through many signs that said "Leep students only" cause I was not paying attention and went to the water fountain in the building we're not supposed to go to. I got many funny looks but I didn't know why so I ignored it. Only after Dr. Town told me I realized why. My physics classroom was in the same room last year so I am so used to going that way, so I guess I didn't really think twice about it.
+
 ### Next Steps
 Improve the algorithm to remove outliers. 
 

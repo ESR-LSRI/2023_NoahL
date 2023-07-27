@@ -198,9 +198,14 @@ Look at weather patterns to see what caused outliers in my graph (storms, extrem
 Add data from SNOTEL sites to my program. Analyze data from 2023, if we have it. Try a polynomial regression model. 
 
 ### Summary
-Gathered data from SNOTEL sites for comparison. I graphed it alongside the snow depth data from the iButton sensors. I graphed a few different SNOTEL locations to see which matched up the best. 999 and 910, Marten Ridge and Elbow Lake both aligned with iButton data pretty well. [graph] (https://github.com/ESR-LSRI/2023_NoahL/blob/main/figures/Figure_1.png)
+Gathered data from SNOTEL sites for comparison. I graphed it alongside the snow depth data from the iButton sensors. I graphed a few different SNOTEL locations to see which matched up the best. 999 and 910, Marten Ridge and Elbow Lake both aligned with iButton data pretty well. [graph] (./figures/Figure_1.png)
 
 ### Next Steps
 [Regression]. Calculate how well the plots fit each other. 
 
 [Regression]: # (what sort of regression are you looking at here? Can you use relative path names for your figures so that I can see them without opening a web browser? Also, I saw that you claim that you didn't have a Silver Turkey yet this summer!?! Everything you have done worked perfectly the first time!!?! Give us a small misstep that you maybe learned from. Nevertheless, great work this summer. )
+
+# 7/25/2023 Continuing Work
+
+### Summary
+Graphed 2023 data along with SNOTEL data. I made an algorithm to remove outliers based on Z score. Doesn't work very well. ![nooutliers](

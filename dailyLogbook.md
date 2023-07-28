@@ -208,7 +208,7 @@ Gathered data from SNOTEL sites for comparison. I graphed it alongside the snow 
 # 7/25/2023 Continuing Work
 
 ### Summary
-Graphed 2023 data along with SNOTEL data. I made an algorithm to remove outliers based on Z score. Doesn't work very well. [nooutliers](./figures/outliersno.png)  [outliers](./figures/outlilersyes.png)
+Graphed 2023 data along with SNOTEL data. I made an algorithm to remove outliers based on the Z score. Doesn't work very well. [nooutliers](./figures/outliersno.png)  [outliers](./figures/outlilersyes.png)
 
 Also a silver turkey...
 
@@ -218,4 +218,5 @@ I guess just walked right through many signs that said "Leep students only" caus
 ### Next Steps
 Improve the algorithm to remove outliers. 
 Note: I made another algorithm that removes outliers based on quartile, which doesn't work either. 
+Note: I realized its probably just a storm causing those so I shouldn't try to remove them.
 

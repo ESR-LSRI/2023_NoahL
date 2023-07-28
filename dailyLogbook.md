@@ -226,6 +226,7 @@ Note: I realized its probably just a storm causing those so I shouldn't try to r
 
 Drafted an email to send to the Mt. Baker group. Tried some algorithms. Didn't work. Realized I don't need to remove outliers. Made this graphic to explain some of the data: [graphic](./figures/graphic.png)
 
-
 ### Next Steps
+
+Graph water equivalent.
 

@@ -224,7 +224,7 @@ Note: I realized its probably just a storm causing those so I shouldn't try to r
 
 ### Summary
 
-Drafted an email to send to the Mt. Baker group. Tried some algorithms. Didn't work. Realized I don't need to remove outliers. Made this graphic to explain some of the data: [graphic](./figures/storm (1).png)
+Drafted an email to send to the Mt. Baker group. Tried some algorithms. Didn't work. Realized I don't need to remove outliers. Made this graphic to explain some of the data: [graphic](./figures/storm(1).png)
 
 
 ### Next Steps

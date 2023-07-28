@@ -217,4 +217,5 @@ I guess just walked right through many signs that said "Leep students only" caus
 
 ### Next Steps
 Improve the algorithm to remove outliers. 
+Note: I made another algorithm that removes outliers based on quartile, which doesn't work either. 
 

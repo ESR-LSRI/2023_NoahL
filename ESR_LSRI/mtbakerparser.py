@@ -62,7 +62,7 @@ def getAltitude(iButtonNum, year: str):
 
 
 def toDecimalDate(date, snotel=False):
-    
+
     if type(date) == str:
         if not snotel:
             try:
@@ -71,13 +71,13 @@ def toDecimalDate(date, snotel=False):
                 raise Exception("failed" + str(date))
         else:
             x = date.split("/")
-    
+
         num = (int(x[2])) + (((int(x[0])-1) * 30.4167 + int(x[1]))/365)
         num = num if snotel else num + 2000
         return num
-    
+
     else:
-        
+
         x = date
         return (int(x[0])) + (((int(x[1])-1) * 30.4167 + int(x[2]))/365)
 
@@ -113,8 +113,6 @@ def difference(list1: list, list2: list) -> list:
     return [abs(a - b) for a, b in zip(list1, list2)]
 
 # this function is hardcoded b/c doing it dynamically doesnt rlly matter
-
-
 def graphExposedByHeight(path: str):
 
     figure, axis = pt.subplots(2, 3)
@@ -157,30 +155,61 @@ def inRange(num1, num2, check):
 def mean(list1):
     return sum(list1) / len(list1)
 
-def zScore(list1):
-    
-    return [round(x, 4) for x in stats.zscore(list1)]
 
-def removeOutliersZ(list1, thresholdb, thresholdt):
-    
-    removed = [x for x, y in zip(list1, zScore(list1)) if thresholdb < y < thresholdt]
-    print(zScore(list1))
+def calcZScoreWithMean(list1, val, mean):
+    return (val - mean) / stdev(list1)
+
+
+def zScore(list1, mean):
+
+    if mean == None:
+        return [round(x, 4) for x in stats.zscore(list1)]
+    else:
+        return [round(calcZScoreWithMean(list1, x, mean), 4) for x in list1]
+
+
+def removeOutliersZ(list1, thresholdb, thresholdt, mean):
+
+    removed = [x for x, y in zip(list1, zScore(
+        list1, mean)) if thresholdb < y < thresholdt]
     return removed
 
+
 def npdt64ToStr(date):
-    
+
     return str(date).split("T")[0].replace("-", "/").split("/")
-    
 
-def graph(dfs, nums, removeOutliers = False):
 
-    allDates = []
-    allValues = []
-    
+def removeOutliersQuartile(list1):
+
+    list1 = np.array(list1)
+
+    Q1 = np.percentile(list1, 25)
+    Q3 = np.percentile(list1, 75)
+
+    IQR = Q3 - Q1
+
+    upper = Q3 + 1.5*IQR
+    lower = Q1 - 1.5*IQR
+
+    upper_array = np.where(list1 >= upper)[0]
+    lower_array = np.where(list1 <= lower)[0]
+
+    for x, y in zip(upper_array, lower_array):
+
+        list1.pop(x)
+        list1.pop(y)
+
+    return list(list1)
+
+
+def graph(dfs, nums, removeOutliers=False):
+
+    #allDates = []
+    #allValues = []
+    prevTemp = []
     temp = []
-    
-    
-    
+
     for en, df in enumerate(dfs[::-1]):
 
         if not type(df.index.values[0]) == np.datetime64:
@@ -190,36 +219,18 @@ def graph(dfs, nums, removeOutliers = False):
         else:
             buried = whenBuried(df["Value"].to_list(), [round(
                 toDecimalDate(npdt64ToStr(x)), 2) for x in list(df.index.values)])
-           
-        #buried = buried[4:]
-        #buried = removeOutliersZ(buried, -1.25, 1.25)
-       
-        
+
         temp += buried
         
         if en % 2 == 1:
-            pt.scatter(temp, listOf(nums[en // 2], len(temp)), label=str(nums[en // 2]) + " (cm)", )
-            temp = []
-        
             
-    
+                        
+            pt.scatter(temp, listOf(
+                nums[en // 2], len(temp)), label=str(nums[en // 2]) + " (cm)", )
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+            temp.clear()
+
         """
         if (outsideOnly):
             if (ind > 0):
@@ -240,26 +251,7 @@ def graph(dfs, nums, removeOutliers = False):
         
         if (en % 2 == 1):
             ind += 1;
-
-    mymodel = np.poly1d(np.polyfit(allDates, allValues, 10))
-
-    myline = np.linspace(2021.9, 2022.44, 100)
-
-    pt.plot(myline, mymodel(myline))
-    
-    /////
-    
-    poly = PolynomialFeatures(degree=2, include_bias=False)
-    poly_features = poly.fit_transform(np.array(allDates).reshape(-1, 1))
-    
-    poly_reg_model = LinearRegression()
-    poly_reg_model.fit(poly_features, allValues)
-    
-    y_predicted = poly_reg_model.predict(poly_features)
-    
-    pt.plot(allDates, y_predicted)
-    """
-
+        """
 
 def getSnowDepth(path: str, outsideOnly=False):
 
@@ -323,7 +315,8 @@ def whenBuried(values: list, dates: list) -> list:
 def graphSnotelData(path: str, site: str, cHex: str, typeGraph: str) -> None:
 
     dfs = [pd.read_csv(path + site + "_25_YEAR=2022" + ".csv", encoding="latin1", skiprows=2),
-           pd.read_csv(path + site + "_25_YEAR=2021" + ".csv", encoding="latin1", skiprows=2),
+           pd.read_csv(path + site + "_25_YEAR=2021" +
+                       ".csv", encoding="latin1", skiprows=2),
            pd.read_csv(path + site + "_25_YEAR=2023" + ".csv", encoding="latin1", skiprows=2)]
 
     totalv = []
@@ -333,7 +326,7 @@ def graphSnotelData(path: str, site: str, cHex: str, typeGraph: str) -> None:
 
         values = df.iloc[:, 3].to_list()
         times = df["Date"].to_list()
-
+        print(len(values))
         totalv += [x * 2.54 for x in values]
         totalt += [round(toDecimalDate(x, True), 2) for x in times]
 
@@ -354,13 +347,13 @@ pathSnotel = "C:/Users/noahl/Desktop/ESR_LSRI-programs/snoteldata/"
 
 # graphExposedByHeight(path)
 #graphSnotelData(pathSnotel, "999", "#000000", "scatter")
-graphSnotelData(pathSnotel, "910", "#800080", "scatter")
+#graphSnotelData(pathSnotel, "910", "#800080", "scatter")
 getSnowDepth(path, False)
 
 
 pt.ylabel("Snow Height (cm)")
 pt.xlabel("Decimal Date")
-pt.xlim(2021.75, 2024)
+pt.xlim(2021.75, 2023.5)
 pt.ylim(-200, 500)
 
 pt.legend()

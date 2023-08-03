@@ -8,6 +8,6 @@ Programs can be found in the "ESR-LSRI" folder. Program outputs can be found in 
 
 Anaconda environment was used for executing Python scripts.
 
-Thanks to the contributors to this project: Zara Z, Felicity W, Kaiden P.
+Thanks to the contributors to this project: Zara Z, Felicity W, Kaiden P.  
 And our mentors: Dr. Michael Town and Dr. Susan Howard.
 

@@ -1,6 +1,4 @@
-# 2023_NoahL
-
-## Evaluating snow accumulation through the application of ibutton temperature sensors
+## Evaluating snow accumulation through the application of ibutton temperature sensors, 2023_NoahL
 
 ### Introduction
 

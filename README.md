@@ -6,6 +6,6 @@ Through this project, I hoped to gauge the snow depth at a static altitude durin
 
 Programs can be found in the "ESR-LSRI" folder. Program outputs can be found in the "figures" folder. Infographic can be found in "docs".
 
-Anaconda environment was used for executing python scripts.
+Anaconda environment was used for executing Python scripts.
 
 

@@ -16,7 +16,7 @@ descLoc = {
 
 }
 
-iButtons = pd.read_csv("data//iButtons.csv")
+iButtons = pd.read_csv("alldata/data/iButtons.csv")
 
 
 def getIndexFromDesc(site, desc):
@@ -220,13 +220,19 @@ def graph(dfs, nums, removeOutliers=False):
             buried = whenBuried(df["Value"].to_list(), [round(
                 toDecimalDate(npdt64ToStr(x)), 2) for x in list(df.index.values)])
 
+        #temp += removeOutliersZ(buried[4:], -1, 1, mean(buried[4:]))
+        #temp += removeOutliersQuartile(buried[4:])
+        #temp += buried[7:]
         temp += buried
         
         if en % 2 == 1:
             
-                        
-            pt.scatter(temp, listOf(
-                nums[en // 2], len(temp)), label=str(nums[en // 2]) + " (cm)", )
+            if df is dfs[0]:
+                pt.scatter(temp, listOf(nums[en // 2], len(temp)), color="red", label = "iButton data")
+                
+            else:
+                pt.scatter(temp, listOf(nums[en // 2], len(temp)), color="red")
+            
             
 
             temp.clear()
@@ -322,22 +328,25 @@ def graphSnotelData(path: str, site: str, cHex: str, typeGraph: str) -> None:
     totalv = []
     totalt = []
 
-    for df in dfs:
+    for ind, df in enumerate(dfs):
+       # print(ind)
 
         values = df.iloc[:, 3].to_list()
         times = df["Date"].to_list()
-        print(len(values))
+        
+        
+        
         totalv += [x * 2.54 for x in values]
         totalt += [round(toDecimalDate(x, True), 2) for x in times]
 
-    if (typeGraph == "scatter"):
+    if (typeGraph == "s"):
         pt.scatter(totalt, totalv, color=cHex, label="SNOTEL data " + site)
     else:
         pt.plot(totalt, totalv, color=cHex, label="SNOTEL data " + site)
 
 
-path = "C:/Users/noahl/Desktop/ESR_LSRI-programs/dataorg/"
-pathSnotel = "C:/Users/noahl/Desktop/ESR_LSRI-programs/snoteldata/"
+path = "alldata/dataorg/"
+pathSnotel = "alldata/snoteldata/"
 # inputs: site, description (Buried, Exposed, Shaded), year range, false to throw an exception when
 # missing data, true to just ignore it
 
@@ -346,8 +355,8 @@ pathSnotel = "C:/Users/noahl/Desktop/ESR_LSRI-programs/snoteldata/"
 #times = [round(toDecimalDate(x), 2) for x in times]
 
 # graphExposedByHeight(path)
-#graphSnotelData(pathSnotel, "999", "#000000", "scatter")
-#graphSnotelData(pathSnotel, "910", "#800080", "scatter")
+graphSnotelData(pathSnotel, "999", "#000000", "s")
+graphSnotelData(pathSnotel, "910", "#800080", "s")
 getSnowDepth(path, False)
 
 

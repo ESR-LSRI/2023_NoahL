@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug  3 09:21:20 2023
+Graphs iButton data, SNOTEL data, and temp data. Used to create figures in 2023_Noahl repo.
+
+@author: Noah L
+"""
+
 import matplotlib.pyplot as pt
 import numpy as np
 import pandas as pd
@@ -16,14 +24,58 @@ descLoc = {
 
 iButtons = pd.read_csv("alldata/data/iButtons.csv")
 
+font = {'family' : 'normal',
+        'size'   : 20}
+
+pt.rc('font', **font)
+
+
 
 def getIndexFromDesc(site, desc):
+    """
+    Helper function that gets row of iButton in a Dataframe.
+    
+    Parameters
+    ----------
+    site : int
+        site of iButton.
+    desc : str
+        type of iButton
 
+    Returns
+    -------
+    int
+        index of iButton.
+
+    """
     return (site - 1) * 3 + descLoc[desc]
 
 
 def getiButtonNum(site, desc, year="All"):  # All: for debug purposes
+    """
+    
+    Gets iButton number from site and description.
 
+    Parameters
+    ----------
+    site : int
+        Site of iButton.
+    desc : str
+        iButton description see descLoc for params.
+    year : str, optional
+        Year to get iButton num from. Default for debug purposes. The default is "All".
+
+    Raises
+    ------
+    Exception
+        When args are invalid.
+
+    Returns
+    -------
+    int
+        iButton number.
+
+    """
     if desc not in ["Buried", "Shaded", "Exposed"] or year not in ["2018", "2019", "2020", "2021", "2022"]:
         raise Exception()
 
@@ -39,7 +91,29 @@ def getiButtonNum(site, desc, year="All"):  # All: for debug purposes
 
 
 def getiButtonData(site: str, desc: str, year: str):
+    """
+    Returns a dataframe of iButton data
 
+    Parameters
+    ----------
+    site : str
+        Site of iButton.
+    desc : str
+        iButton description.
+    year : str
+        Year to get iButton data from.
+
+    Raises
+    ------
+    Exception
+        Invalid params.
+
+    Returns
+    -------
+    Dataframe
+        Dataframe of iButton data
+
+    """
     if desc not in ["Buried", "Shaded", "Exposed"] or year not in ["2018", "2019", "2020", "2021", "2022"]:
         raise Exception()
     return pd.read_csv("alldata//data//" + year + "//" + "MBCP" + year + "-" + str(int(year) + 1) + "_iButton" + getiButtonNum(site, desc, str(year)) + ".csv", skiprows=14, encoding="latin1")
@@ -60,7 +134,22 @@ def getAltitude(iButtonNum, year: str):
 
 
 def toDecimalDate(date, snotel=False):
+    """
+    Converts str to decimal date.
+    
+    Parameters
+    ----------
+    date : str
+        date to convert
+    snotel : bool, optional
+        If formatting is from a SNOTEL .csv file
 
+    Returns
+    -------
+    num : int
+        Decimal year.
+    """
+    
     if type(date) == str:
         if not snotel:
             try:
@@ -69,7 +158,6 @@ def toDecimalDate(date, snotel=False):
                 raise Exception("failed" + str(date))
         else:
             x = date.split("/")
-
         num = (int(x[2])) + (((int(x[0])-1) * 30.4167 + int(x[1]))/365)
         num = num if snotel else num + 2000
         return num
@@ -81,7 +169,33 @@ def toDecimalDate(date, snotel=False):
 
 
 def getDataYears(site, desc, yrRange: str, ignoreMissingData: bool = True, returnTimes: bool = True) -> list:
+    """
+    
+    Gets data in a year range.
 
+    Parameters
+    ----------
+    site : int
+        Site of iButtons.
+    desc : str
+        iButton description.
+    yrRange : str
+        Range to get data from.
+    ignoreMissingData : bool, optional
+        False to throw an exception when missing data. Default to ignore. The default is True.
+    returnTimes : bool, optional
+        Debug purposes. Ignore. The default is True.
+
+    Raises
+    ------
+    Exception
+        Missing data if ignoreMissingData is false.
+
+    Returns
+    -------
+    list, list
+        data, times to plot.
+    """
     years = yrRange.split("-")
     data = []
     times = []
@@ -113,13 +227,41 @@ def getDataYears(site, desc, yrRange: str, ignoreMissingData: bool = True, retur
 
 
 def difference(list1: list, list2: list) -> list:
+    """
+    Gets the difference from two same length lists
 
+    Parameters
+    ----------
+    list1 : list
+        1st list to subtract.
+    list2 : list
+        2nd list to subtract.
+
+    Returns
+    -------
+    list
+        List where each number is subtracted from other list. (abs)
+
+    """
+    
+    
     return [abs(a - b) for a, b in zip(list1, list2)]
 
 # this function is hardcoded b/c doing it dynamically doesnt rlly matter
-
-
 def graphExposedByHeight(path: str):
+    """
+    Graphs temperature as a function of date by iButton height.
+
+    Parameters
+    ----------
+    path : str
+        Path of folder with iButton data.
+
+    Returns
+    -------
+    None.
+
+    """
 
     figure, axis = pt.subplots(2, 3)
 
@@ -149,23 +291,50 @@ def graphExposedByHeight(path: str):
 
 
 def listOf(num, size):
+    """
+    Creates a list of a certain number with a certain size. Similar to np.arange.
+
+    Parameters
+    ----------
+    num : TYPE
+        Number to fill list with.
+    size : TYPE
+        List size.
+
+    Returns
+    -------
+    list
+        List with specified numbers with specified size..
+
+    """
+    
     return [num for x in range(size)]
 
 
-def inRange(num1, num2, check):
-    if check < num2 and check > num1:
-        return True
-    return False
-
 
 def mean(list1):
+    """
+    Gets mean of list
+
+    Parameters
+    ----------
+    list1 : list
+        List to get mean of.
+
+    Returns
+    -------
+    int
+        Mean of list.
+
+    """
+    
     return sum(list1) / len(list1)
 
-
+#Deprecated
 def calcZScoreWithMean(list1, val, mean):
     return (val - mean) / stdev(list1)
 
-
+#Deprecated
 def zScore(list1, mean):
 
     if mean == None:
@@ -173,7 +342,7 @@ def zScore(list1, mean):
     else:
         return [round(calcZScoreWithMean(list1, x, mean), 4) for x in list1]
 
-
+#Deprecated
 def removeOutliersZ(list1, thresholdb, thresholdt, mean):
 
     removed = [x for x, y in zip(list1, zScore(
@@ -182,10 +351,24 @@ def removeOutliersZ(list1, thresholdb, thresholdt, mean):
 
 
 def npdt64ToStr(date):
+    """
+    Converts a np datetime64 to str.
+
+    Parameters
+    ----------
+    date : np.datetime64
+        Date to conver to str.
+
+    Returns
+    -------
+    str
+        Time as a string.
+
+    """
 
     return str(date).split("T")[0].replace("-", "/").split("/")
 
-
+#Deprecated
 def removeOutliersQuartile(list1):
 
     list1 = np.array(list1)
@@ -209,8 +392,23 @@ def removeOutliersQuartile(list1):
     return list(list1)
 
 
-def graph(dfs, nums, removeOutliers=False):
+def graph(dfs, nums):
+    """
+    Graphs a list of dataframes of temperature and time data. Requires a certain dataframe structure. Do not use randomly.
 
+    Parameters
+    ----------
+    dfs : list
+        List of dataframes to graph.
+    nums : list
+        Height numbers.
+
+    Returns
+    -------
+    None.
+
+    """
+    
     #allDates = []
     #allValues = []
     prevTemp = []
@@ -235,7 +433,7 @@ def graph(dfs, nums, removeOutliers=False):
 
             if df is dfs[0]:
                 pt.scatter(temp, listOf(
-                    nums[en // 2], len(temp)), color="red", label="iButton data")
+                    nums[en // 2], len(temp)), color="red", label="Extracted Snow Depth iButton data")
 
             else:
                 pt.scatter(temp, listOf(nums[en // 2], len(temp)), color="red")
@@ -266,6 +464,21 @@ def graph(dfs, nums, removeOutliers=False):
 
 
 def getSnowDepth(path: str, outsideOnly=False):
+    """
+    Gets a list of dataframes with snow depth.
+
+    Parameters
+    ----------
+    path : str
+        Path to folders with snow depth.
+    outsideOnly : boolean, optional
+        Deprecated. The default is False.
+
+    Returns
+    -------
+    None.
+
+    """
 
     dfs = []
 
@@ -291,6 +504,20 @@ def getSnowDepth(path: str, outsideOnly=False):
 
 
 def check(list1: list) -> bool:
+    """
+    Checks if sensor is buried based on data from a day.
+
+    Parameters
+    ----------
+    list1 : list
+        Day from a full day.
+
+    Returns
+    -------
+    bool
+        Buried or not.
+
+    """
 
     if stdev(list1) < 0.45:
         return True
@@ -305,6 +532,22 @@ def check(list1: list) -> bool:
 
 
 def whenBuried(values: list, dates: list) -> list:
+    """
+    Returns a list of dates when iButton is buried
+
+    Parameters
+    ----------
+    values : list
+        iButton temp values.
+    dates : list
+        iButton dates.
+
+    Returns
+    -------
+    list
+        Dates when iButton is buried.
+
+    """
 
     prevDate = dates[0]
     dayData = []
@@ -325,6 +568,26 @@ def whenBuried(values: list, dates: list) -> list:
 
 
 def graphSnotelData(path: str, site: str, cHex: str, typeGraph: str) -> None:
+    """
+    Graphs data from SNOTEL sites
+
+    Parameters
+    ----------
+    path : str
+        Path to SNOTEL data.
+    site : str
+        Site number.
+    cHex : str
+        Color.
+    typeGraph : str
+        Scatter or plot.
+
+    Returns
+    -------
+    None.
+
+
+    """
 
     dfs = [pd.read_csv(path + site + "_25_YEAR=2022" + ".csv", encoding="latin1", skiprows=2),
            pd.read_csv(path + site + "_25_YEAR=2021" +
@@ -349,35 +612,20 @@ def graphSnotelData(path: str, site: str, cHex: str, typeGraph: str) -> None:
         pt.plot(totalt, totalv, color=cHex, label="SNOTEL data " + site)
 
 
-# inputs: site, description (Buried, Exposed, Shaded), year range, false to throw an exception when
-# missing data, true to just ignore it
-data, times = getDataYears(1, "Buried", "2018-2021", True)
-timesParsed = []
-for x in times:
-    
-    try:
-        
-        timesParsed.append(round(toDecimalDate(x), 2))
-        
-    except:
-        
-        timesParsed.append(np.nan)
-
-pt.plot(timesParsed, data)
-
-
 path = "alldata/dataorg/"
 pathSnotel = "alldata/snoteldata/"
+
+#comment and uncomment as needed
 # graphExposedByHeight(path)
-# graphSnotelData(pathSnotel, "999", "#000000", "s")
-# graphSnotelData(pathSnotel, "910", "#800080", "s")
-#getSnowDepth(path, False)
+graphSnotelData(pathSnotel, "999", "#000000", "s")
+graphSnotelData(pathSnotel, "910", "#800080", "s")
+getSnowDepth(path, False)
 
 
 pt.ylabel("Snow Height (cm)")
 pt.xlabel("Decimal Date")
-#pt.xlim(2021.75, 2023.5)
-#pt.ylim(-200, 500)
+pt.xlim(2021.75, 2023.5)
+pt.ylim(-200, 500)
 
-pt.legend()
+pt.legend(loc = "best")
 pt.show()

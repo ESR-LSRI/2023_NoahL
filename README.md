@@ -9,6 +9,10 @@ Programs can be found in the "ESR-LSRI" folder.
 * graphIButtonData - graphs specifically iButton data.
 
 Program outputs can be found in the "figures" folder. 
+* graphic.png - a simple explanation of my data
+* alldataclean.png - iButton snow depth data and SNOTEL data
+* justibutton.png - iButton snow depth data
+* temp.png - iButton temperature data
 
 Infographic and more information can be found in "docs".
 

@@ -4,8 +4,6 @@ import pandas as pd
 import os
 
 from scipy import stats
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.linear_model import LinearRegression
 from statistics import stdev
 
 descLoc = {
@@ -44,7 +42,7 @@ def getiButtonData(site: str, desc: str, year: str):
 
     if desc not in ["Buried", "Shaded", "Exposed"] or year not in ["2018", "2019", "2020", "2021", "2022"]:
         raise Exception()
-    return pd.read_csv("data//" + year + "//" + "MBCP" + year + "-" + str(int(year) + 1) + "_iButton" + getiButtonNum(site, desc, str(year)) + ".csv", skiprows=14, encoding="latin1")
+    return pd.read_csv("alldata//data//" + year + "//" + "MBCP" + year + "-" + str(int(year) + 1) + "_iButton" + getiButtonNum(site, desc, str(year)) + ".csv", skiprows=14, encoding="latin1")
 
 
 def getAltitude(iButtonNum, year: str):
@@ -52,7 +50,7 @@ def getAltitude(iButtonNum, year: str):
     if year not in ["2018", "2019", "2020", "2021", "2022"]:
         raise Exception()
 
-    df = pd.read_csv("data//altitudes//altitudes" +
+    df = pd.read_csv("alldata//data//altitudes//altitudes" +
                      year + ".csv", encoding="latin1")
 
     if not np.isnan(df.at[iButtonNum - 1, "Altitude (meters)"]):
@@ -96,13 +94,19 @@ def getDataYears(site, desc, yrRange: str, ignoreMissingData: bool = True, retur
             data += getiButtonData(site, desc, num)["Value"].tolist()
             times += getiButtonData(site, desc, num)["Date/Time"].tolist()
         except:
-
             if not ignoreMissingData:
                 raise Exception("Missing date from site {}, {}, {}, num {}.".format(
                     site, desc, num, getiButtonNum(site, desc, num)))
+            else:
+                
+                
+                times += [np.nan for x in np.arange(float(num) + 0.5, float(num) + 1.5)]
+                data += [np.nan for x in np.arange(float(num) + 0.5, float(num) + 1.5)]
+                
 
         num = int(num) + 1
         num = str(num)
+
     if (returnTimes):
         return data, times
     return data
@@ -113,6 +117,8 @@ def difference(list1: list, list2: list) -> list:
     return [abs(a - b) for a, b in zip(list1, list2)]
 
 # this function is hardcoded b/c doing it dynamically doesnt rlly matter
+
+
 def graphExposedByHeight(path: str):
 
     figure, axis = pt.subplots(2, 3)
@@ -224,16 +230,15 @@ def graph(dfs, nums, removeOutliers=False):
         #temp += removeOutliersQuartile(buried[4:])
         #temp += buried[7:]
         temp += buried
-        
+
         if en % 2 == 1:
-            
+
             if df is dfs[0]:
-                pt.scatter(temp, listOf(nums[en // 2], len(temp)), color="red", label = "iButton data")
-                
+                pt.scatter(temp, listOf(
+                    nums[en // 2], len(temp)), color="red", label="iButton data")
+
             else:
                 pt.scatter(temp, listOf(nums[en // 2], len(temp)), color="red")
-            
-            
 
             temp.clear()
 
@@ -258,6 +263,7 @@ def graph(dfs, nums, removeOutliers=False):
         if (en % 2 == 1):
             ind += 1;
         """
+
 
 def getSnowDepth(path: str, outsideOnly=False):
 
@@ -333,9 +339,7 @@ def graphSnotelData(path: str, site: str, cHex: str, typeGraph: str) -> None:
 
         values = df.iloc[:, 3].to_list()
         times = df["Date"].to_list()
-        
-        
-        
+
         totalv += [x * 2.54 for x in values]
         totalt += [round(toDecimalDate(x, True), 2) for x in times]
 
@@ -345,25 +349,35 @@ def graphSnotelData(path: str, site: str, cHex: str, typeGraph: str) -> None:
         pt.plot(totalt, totalv, color=cHex, label="SNOTEL data " + site)
 
 
-path = "alldata/dataorg/"
-pathSnotel = "alldata/snoteldata/"
 # inputs: site, description (Buried, Exposed, Shaded), year range, false to throw an exception when
 # missing data, true to just ignore it
+data, times = getDataYears(1, "Buried", "2018-2021", True)
+timesParsed = []
+for x in times:
+    
+    try:
+        
+        timesParsed.append(round(toDecimalDate(x), 2))
+        
+    except:
+        
+        timesParsed.append(np.nan)
 
-#data, times = getDataYears(1, "Buried","2018-2021", False)
+pt.plot(timesParsed, data)
 
-#times = [round(toDecimalDate(x), 2) for x in times]
 
+path = "alldata/dataorg/"
+pathSnotel = "alldata/snoteldata/"
 # graphExposedByHeight(path)
-graphSnotelData(pathSnotel, "999", "#000000", "s")
-graphSnotelData(pathSnotel, "910", "#800080", "s")
-getSnowDepth(path, False)
+# graphSnotelData(pathSnotel, "999", "#000000", "s")
+# graphSnotelData(pathSnotel, "910", "#800080", "s")
+#getSnowDepth(path, False)
 
 
 pt.ylabel("Snow Height (cm)")
 pt.xlabel("Decimal Date")
-pt.xlim(2021.75, 2023.5)
-pt.ylim(-200, 500)
+#pt.xlim(2021.75, 2023.5)
+#pt.ylim(-200, 500)
 
 pt.legend()
 pt.show()

@@ -1,0 +1,15 @@
+iButton #,Site #,Lat,Long,,Details,Collection Notes,Altitude (meters)
+1,1,48 42.350 N,121 49.470 W,"48°42'21.0""N 121°49'28.2""W",Buried,sensor 3 was in this spot,1066
+2,1,48 42.350 N,121 49.480 W,"48°42'21.0""N 121°49'28.8""W",Tree (exposed),"wire broke, sensor found on ground",1067
+3,1,48 42.350 N,121 49.480 W,"48°42'21.0""N 121°49'28.8""W",Tree (shaded),sensor 1 found inside,1067
+4,1,48 42.350 N,121 49.480 W,"48°42'21.0""N 121°49'28.8""W",Tree (exposed),wire broke,1067
+5,2,48 42.850 N,121 49.867 W,"48°42'51.0""N 121°49'52.0""W",Tree (shaded),"wire broke, sensor dangling",1182
+6,2,48 42.850 N,121 49.867 W,"48°42'51.0""N 121°49'52.0""W",Buried,3 rocks on it,1182
+7,3,48 43.033 N,121 50.050 W,"48°43'02.0""N 121°50'03.0""W",Tree (shaded),wire beginning to wear,1341
+8,3,48 43.033 N,121 50.050 W,"48°43'02.0""N 121°50'03.0""W",Buried,couldn't find,1341
+9,4,48 43.300 N,121 50.367 W,"48°43'18.0""N 121°50'22.0""W",Buried,,1472
+10,5,48 44.017 N,121 50.483 W,"48°44'01.0""N 121°50'29.0""W",Buried,,1682
+11,5,48 44.017 N,121 50.483 W,"48°44'01.0""N 121°50'29.0""W",Buried,"some moisture in container, battery died later",1682
+12,5,48 44.017 N,121 50.483 W,"48°44'01.0""N 121°50'29.0""W",Buried,,1682
+13,6,48 44.333 N,121 50.500 W,"48°44'20.0""N 121°50'30.0""W",Buried,battery died later,1792
+14,7,48 44.983 N,121 50.400 W,"48°44'59.0""N 121°50'24.0""W",Buried,not collected,2058

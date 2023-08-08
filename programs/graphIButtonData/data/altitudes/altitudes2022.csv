@@ -1,0 +1,19 @@
+iButton #,Site #,Lat,Long,Details,Collection Notes,Altitude (meters)
+1,1,48 42 21 N,121 49 29 W,Buried,,1067
+2,1,48 42 20 N,121 49 28 W,Tree (shaded),,1066
+3,1,48 42 20 N,121 49 27 W,Tree (exposed),,1065
+4,1,48 42 20 N,121 49 27 W,Tree (exposed),,1065
+5,1,48 42 20 N,121 49 27 W,Tree (exposed),,1065
+6,1,48 42 20 N,121 49 27 W,Tree (exposed),,1065
+7,1,48 42 20 N,121 49 27 W,Tree (exposed),,1065
+8,2,48 42 51 N,121 49 51 W,Buried,,1176
+9,2,48 42 51 N,121 49 51 W,Tree (shaded),,1176
+10,3,48 43 2 N,121 50 3 W,Buried,,1342
+11,3,48 43 2 N,121 50 3 W,Tree (shaded),,1342
+12,4,48.72173 N,-121.83958 W,Buried,,1469
+13,5,48 44 1 N,121 50 29 W,Buried,,1752
+14,5,48 44 1 N,121 50 29 W,Buried,,1752
+15,5,48 44 1 N,121 50 29 W,Buried,,1752
+16,6,48 44 19 N,121 50 29 W,Buried,,1752
+17,7,48 44 60 N,121 50 24 W,Buried,,2060
+18,8,48 46 9 N,121 49 11 W,Buried,,2957
